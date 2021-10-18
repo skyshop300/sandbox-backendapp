@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.demo.vo.Employee;
 
 public interface TestService {
+<<<<<<< HEAD
 	
 	List<Employee> findAllEmployees();
 
@@ -16,4 +17,8 @@ public interface TestService {
 
 	void removeEmployeeById(String employeeId);
 
+=======
+	List<Employee> selectTest();
+	List<Employee> findAllEmployees();
+>>>>>>> upstream/master
 }
