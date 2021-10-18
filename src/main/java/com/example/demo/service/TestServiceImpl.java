@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +13,33 @@ public class TestServiceImpl implements TestService {
 
 	@Autowired
 	TestMapper testMapper;
+	
+	@Override
+	public List<Employee> findAllEmployees() {
+		return testMapper.selectAllEmployees();
+	}
 
 	@Override
-	public String selectTest() {
-		// TODO Auto-generated method stub
-		List<Employee> employees = new ArrayList<Employee>();
-		employees.add(new Employee("12302","정재엽"));
-		return "정재엽";
-		//return testMapper.selectTest();
+	public List<Employee> findEmployeeByIdOrName(String employeeInfo) {
+		return testMapper.selectEmployeeByIdOrName(employeeInfo);
 	}
 	
+	
+	@Override
+	public void insertEmployee(Employee employee) {// insert Service
+		testMapper.insertEmployee(employee);
+		
+	}
+
+	@Override
+	public void updateEmployee(Employee employee) {// update Service
+		testMapper.updateEmployee(employee);		
+	}
+	
+	@Override
+	public void removeEmployeeById(String employeeId) {
+		testMapper.deleteEmployee(employeeId);
+	}
+	
+
 }
