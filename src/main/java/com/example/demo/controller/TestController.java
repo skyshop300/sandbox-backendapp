@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,18 +9,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.TestService;
 import com.example.demo.vo.Employee;
 
+import lombok.AllArgsConstructor;
+
 @RestController
+@AllArgsConstructor
 @RequestMapping(value = "/")
 public class TestController {
 	
-	@Autowired
 	private TestService testService;
 	
 	@GetMapping("/test")
-    String testGet(){
-		//return testService.selectTest().get(0).getEmployeeName();
-		return "yeop";
+    List<Employee> testGet(){
+		return testService.selectTest();
     }
+	
+	// 직원 ALL 조회
+	@GetMapping("/all")
+	List<Employee> findAllEmployees() {
+		return testService.findAllEmployees();
+	}
 	
 	// 직원등록
 	

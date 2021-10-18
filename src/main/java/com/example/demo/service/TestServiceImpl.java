@@ -16,12 +16,17 @@ public class TestServiceImpl implements TestService {
 	TestMapper testMapper;
 
 	@Override
-	public String selectTest() {
+	public List<Employee> selectTest() {
 		// TODO Auto-generated method stub
 		List<Employee> employees = new ArrayList<Employee>();
 		employees.add(new Employee("12302","정재엽"));
-		return "정재엽";
-		//return testMapper.selectTest();
+		//return "정재엽";
+		return testMapper.selectTest();
+	}
+
+	@Override
+	public List<Employee> findAllEmployees() {
+		return testMapper.selectAllEmployees();
 	}
 	
 }

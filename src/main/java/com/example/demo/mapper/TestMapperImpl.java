@@ -11,14 +11,20 @@ import com.example.demo.vo.Employee;
 public class TestMapperImpl implements TestMapper {
 
 	@Override
-	public String selectTest() {
+	public List<Employee> selectTest() {
 		
 		Employee e = new Employee("12302","정재엽");
 		
 		List<Employee> employees = new ArrayList<Employee>();
 		employees.add(e);
 		
-		return "정재엽";
+		return employees;
+	}
+
+	@Override
+	public List<Employee> selectAllEmployees() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
