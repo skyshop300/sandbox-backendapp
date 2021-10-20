@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.TestService;
 import com.example.demo.vo.Employee;
 
+import lombok.AllArgsConstructor;
+
 @RestController
 @CrossOrigin(origins = "*")
+@AllArgsConstructor
 @RequestMapping(value = "/", method = { RequestMethod.GET, RequestMethod.POST })
 public class TestController {
 
